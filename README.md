@@ -17,7 +17,7 @@ Built for the Build with AI talk at GDG Gwalior.
 | --- | --- |
 | `workflow/log-gym-sets-telegram-to-notion.json` | The n8n workflow, ready to import |
 | `data-tables/gym_sets.csv` | Schema plus sample rows for the `gym_sets` table |
-| `data-tables/gym_pending_question.csv` | Schema plus one placeholder row for the `gym_pending_question` table |
+| `data-tables/gym_pending_question.csv` | Schema only (empty) for the `gym_pending_question` table |
 
 ## Setup
 
@@ -25,7 +25,8 @@ Built for the Build with AI talk at GDG Gwalior.
 
 In n8n, open **Overview > Data tables > Create data table > Import CSV**.
 Import each CSV and keep the file name as the table name (`gym_sets`, `gym_pending_question`).
-You can delete the sample rows after importing; they only exist so the column types are detected.
+`gym_pending_question` starts empty; the workflow adds and clears its row by itself.
+You can delete the sample rows in `gym_sets` after importing; they only exist so the number columns are detected.
 In `gym_sets`, `setNo`, `reps`, `weight` and `telegramMessageId` must be **number** columns, and all others **string**.
 In `gym_pending_question`, all three columns are **string**.
 
