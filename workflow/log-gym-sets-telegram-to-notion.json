@@ -1,0 +1,1283 @@
+{
+  "name": "Log gym sets from Telegram to Notion",
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "connections": {
+    "Load today's sets": {
+      "main": [
+        [
+          {
+            "node": "Build context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build context": {
+      "main": [
+        [
+          {
+            "node": "Voice or text?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Voice or text?": {
+      "main": [
+        [
+          {
+            "node": "Download voice note",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Use typed text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Plan changes": {
+      "main": [
+        [
+          {
+            "node": "Route by action",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route by action": {
+      "main": [
+        [
+          {
+            "node": "Save new sets",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Delete last set",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update last set",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save new sets": {
+      "main": [
+        [
+          {
+            "node": "Find day block",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find day block": {
+      "main": [
+        [
+          {
+            "node": "Day block exists?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete last set": {
+      "main": [
+        [
+          {
+            "node": "Find day block",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update last set": {
+      "main": [
+        [
+          {
+            "node": "Find day block",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Day block exists?": {
+      "main": [
+        [
+          {
+            "node": "Delete old day block",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create day block",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete old day block": {
+      "main": [
+        [
+          {
+            "node": "Create day block",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create day block": {
+      "main": [
+        [
+          {
+            "node": "Fill day block",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fill day block": {
+      "main": [
+        [
+          {
+            "node": "Send reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Use voice transcript": {
+      "main": [
+        [
+          {
+            "node": "Extract workout data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Use typed text": {
+      "main": [
+        [
+          {
+            "node": "Extract workout data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract workout data": {
+      "main": [
+        [
+          {
+            "node": "Plan changes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chat model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Extract workout data",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download voice note": {
+      "main": [
+        [
+          {
+            "node": "Transcribe an audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On Telegram message": {
+      "main": [
+        [
+          {
+            "node": "Load pending question",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load pending question": {
+      "main": [
+        [
+          {
+            "node": "Load today's sets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send reply": {
+      "main": [
+        [
+          {
+            "node": "Remember open question",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe an audio": {
+      "main": [
+        [
+          {
+            "node": "Read transcript file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read transcript file": {
+      "main": [
+        [
+          {
+            "node": "Use voice transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {
+          "chatIds": "YOUR_TELEGRAM_CHAT_ID"
+        }
+      },
+      "id": "adb72795-5788-494f-b3ff-3e1004a4e5c9",
+      "name": "On Telegram message",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        -544,
+        32
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "SELECT_gym_sets_TABLE",
+          "cachedResultName": "gym_sets"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "sessionDate",
+              "keyValue": "={{ $now.minus({ hours: 4 }).toFormat('yyyy-MM-dd') }}"
+            }
+          ]
+        },
+        "returnAll": true,
+        "orderBy": true,
+        "orderByDirection": "ASC"
+      },
+      "id": "1c7e5283-e1ed-42c7-b9eb-25fd2e1346d5",
+      "name": "Load today's sets",
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -96,
+        32
+      ],
+      "alwaysOutputData": true,
+      "notes": "A workout day runs from 4 AM to 4 AM, so a late session after midnight stays on the same date. Empty on the first set of the day; Build context handles that."
+    },
+    {
+      "parameters": {
+        "jsCode": "const CATALOG = [\n  ['Bench Press', 'Chest', 'flat bench, barbell bench, bench'],\n  ['Incline Dumbbell Press', 'Chest', 'incline db press, incline dumbbell bench'],\n  ['Incline Bench Press', 'Chest', 'incline barbell press'],\n  ['Dumbbell Fly', 'Chest', 'db fly, flyes, chest fly'],\n  ['Cable Fly', 'Chest', 'cable crossover, crossover, pec fly'],\n  ['Push-up', 'Chest', 'pushups, push ups'],\n  ['Dumbbell Row', 'Back', 'db row, one arm row, single arm row, jumble row'],\n  ['Barbell Row', 'Back', 'bent over row, bb row'],\n  ['Lat Pulldown', 'Back', 'pulldown, lat pull down'],\n  ['Seated Cable Row', 'Back', 'cable row, low row'],\n  ['Pull-up', 'Back', 'pullups, chin up, chin-ups'],\n  ['Deadlift', 'Back', 'conventional deadlift, dead lift'],\n  ['Overhead Press', 'Shoulders', 'ohp, military press, shoulder press'],\n  ['Dumbbell Shoulder Press', 'Shoulders', 'db shoulder press, seated dumbbell press'],\n  ['Lateral Raise', 'Shoulders', 'side raise, side lateral, lateral raises'],\n  ['Rear Delt Fly', 'Shoulders', 'reverse fly, rear delt'],\n  ['Barbell Curl', 'Biceps', 'bicep curl, bb curl, straight bar curl'],\n  ['Dumbbell Curl', 'Biceps', 'db curl, alternate curl'],\n  ['Hammer Curl', 'Biceps', 'hammer curls, neutral grip curl'],\n  ['Preacher Curl', 'Biceps', 'ez bar preacher, preacher'],\n  ['Tricep Pushdown', 'Triceps', 'cable pushdown, rope pushdown, pushdown'],\n  ['Skull Crusher', 'Triceps', 'lying tricep extension, skullcrushers'],\n  ['Overhead Tricep Extension', 'Triceps', 'overhead extension, french press'],\n  ['Squat', 'Legs', 'back squat, barbell squat'],\n  ['Leg Press', 'Legs', 'leg press machine'],\n  ['Romanian Deadlift', 'Legs', 'rdl, stiff leg deadlift'],\n  ['Leg Extension', 'Legs', 'quad extension'],\n  ['Leg Curl', 'Legs', 'hamstring curl, lying leg curl'],\n  ['Calf Raise', 'Legs', 'calves, standing calf raise'],\n  ['Plank', 'Core', 'planks'],\n  ['Cable Crunch', 'Core', 'crunches, ab crunch'],\n].map((entry) => ({ name: entry[0], muscleGroup: entry[1], aliases: entry[2] }));\n\nconst toSet = (row) => ({\n  id: row.id,\n  exercise: row.exercise,\n  muscleGroup: row.muscleGroup || 'Full Body',\n  setNo: row.setNo,\n  reps: row.reps,\n  weight: row.weight,\n  unit: row.unit || 'kg',\n  dayFocus: row.dayFocus || null,\n  createdAt: row.createdAt,\n});\nconst sets = $input.all().map((item) => item.json).filter((row) => row.id).map(toSet);\n\nconst isNewToCatalog = (set, index, all) => !CATALOG.some((entry) => entry.name === set.exercise) && all.findIndex((other) => other.exercise === set.exercise) === index;\nconst exercises = CATALOG.concat(sets.filter(isNewToCatalog).map((set) => ({ name: set.exercise, muscleGroup: set.muscleGroup, aliases: '' })));\n\nconst exerciseOrder = sets.map((set) => set.exercise).filter((name, index, all) => all.indexOf(name) === index);\nconst describe = (name) => '- ' + name + ': ' + sets.filter((set) => set.exercise === name).map((set) => set.reps + 'x' + set.weight + set.unit).join(', ');\nconst lastSet = sets[sets.length - 1] || null;\n\nconst PENDING_MINUTES = 15;\nconst pendingRow = $('Load pending question').first().json;\nconst isFresh = (row) => Boolean(row && row.note) && $now.diff(DateTime.fromJSDate(new Date(row.updatedAt)), 'minutes').minutes < PENDING_MINUTES;\nconst pending = isFresh(pendingRow) ? { note: pendingRow.note, question: pendingRow.question } : null;\nconst spokenFocus = sets.map((set) => set.dayFocus).filter(Boolean).pop() || null;\n\nreturn [{\n  json: {\n    sets,\n    exercises,\n    lastSet,\n    spokenFocus,\n    exerciseNames: exercises.map((exercise) => exercise.name).join(', '),\n    catalogForPrompt: exercises.map((exercise) => exercise.name + ' [' + exercise.muscleGroup + ']' + (exercise.aliases ? ' aka ' + exercise.aliases : '')).join('\\n'),\n    sessionSummary: sets.length ? exerciseOrder.map(describe).join('\\n') : 'Nothing logged yet today.',\n    lastExercise: lastSet ? lastSet.exercise : 'none',\n    pendingNote: pending ? pending.note : '',\n    pendingForPrompt: pending ? 'Earlier note still waiting for an answer: \"' + pending.note + '\"\\nYou asked: \"' + pending.question + '\"' : 'No earlier question is waiting.',\n  },\n}];"
+      },
+      "id": "2e5e3aa5-14b2-4b9e-ac34-61ef6e8e841f",
+      "name": "Build context",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        128,
+        32
+      ],
+      "notes": "Exercise names the AI should match against, plus what has been logged so far today."
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('On Telegram message').first().json.message.voice?.file_id ?? '' }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notEmpty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('On Telegram message').first().json.message.text ?? '' }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notEmpty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1f1a6cc7-083d-4f39-a6e8-22ac35f4332e",
+      "name": "Voice or text?",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        352,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $('On Telegram message').first().json.message.voice.file_id }}",
+        "additionalFields": {
+          "mimeType": "audio/ogg"
+        }
+      },
+      "id": "cc040efd-ec41-4198-b3c7-e18ef446ec48",
+      "name": "Download voice note",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        576,
+        -64
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "voice-text",
+              "name": "text",
+              "value": "={{ String($json.transcriptFile || $('Transcribe an audio').first().json.text || $('Transcribe an audio').first().json.transcription || $('Transcribe an audio').first().json.data?.text || $('Transcribe an audio').first().json.data?.transcription || '').trim() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "508b0b06-fdc3-407e-a21f-b4182490e23e",
+      "name": "Use voice transcript",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1232,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "typed-text",
+              "name": "text",
+              "value": "={{ $('On Telegram message').first().json.message.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "73fe6dd4-1ae7-4614-be47-f5146216a593",
+      "name": "Use typed text",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1024,
+        128
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const PAGE_ID = 'YOUR_NOTION_PAGE_ID';\nconst DAY_STARTS_AT_HOUR = 4;\nconst MUSCLE_GROUPS = ['Chest', 'Back', 'Shoulders', 'Biceps', 'Triceps', 'Legs', 'Core', 'Cardio', 'Full Body'];\nconst DEFAULT_HELP = 'I could not tell what to log. Try: \"bench press, 10 reps at 50 kg\".';\n\nconst ctx = $('Build context').first().json;\nconst message = $('On Telegram message').first().json.message;\nconst transcript = $('Use voice transcript').isExecuted ? $('Use voice transcript').first().json.text : $('Use typed text').first().json.text;\nconst sessionDate = $now.minus({ hours: DAY_STARTS_AT_HOUR }).toFormat('yyyy-MM-dd');\nconst dayPrefix = '📅 ' + DateTime.fromISO(sessionDate).toFormat('ccc, d LLL yyyy');\n\nconst escapeHtml = (value) => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');\nconst hasNumber = (value) => value !== null && value !== undefined && value !== '' && !isNaN(Number(value));\nconst formatWeight = (set) => set.weight + ' ' + set.unit;\nconst formatSet = (set) => set.reps + ' × ' + formatWeight(set);\nconst setCount = (count) => count + (count === 1 ? ' set' : ' sets');\nconst unique = (values) => values.filter((value, index, all) => all.indexOf(value) === index);\n\nconst fence = String.fromCharCode(96).repeat(3);\nconst modelText = (raw) => {\n  const parts = (raw.content && raw.content.parts) || [];\n  return parts.map((part) => part.text || '').join('') || raw.text || raw.output || '';\n};\nconst parseModelOutput = (raw) => {\n  if (raw && raw.intent) return raw;\n  const cleaned = String(modelText(raw || {})).split(fence + 'json').join('').split(fence).join('').trim();\n  try {\n    return JSON.parse(cleaned);\n  } catch (error) {\n    return { intent: 'unclear', question: null };\n  }\n};\n\nconst normalize = (value) => String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '');\nconst matchesName = (exercise, name) => [exercise.name].concat(String(exercise.aliases || '').split(',')).some((candidate) => normalize(candidate) === normalize(name));\nconst validMuscle = (value) => (MUSCLE_GROUPS.includes(value) ? value : null);\nconst isValidSet = (set) => Boolean(set && set.exercise) && Number(set.reps) > 0 && hasNumber(set.weight) && Number(set.weight) >= 0;\n\nconst dayLabel = (sets, focus) => {\n  const setsPerMuscle = {};\n  sets.forEach((set) => {\n    setsPerMuscle[set.muscleGroup] = (setsPerMuscle[set.muscleGroup] || 0) + 1;\n  });\n  const ranked = Object.keys(setsPerMuscle).sort((a, b) => setsPerMuscle[b] - setsPerMuscle[a]);\n  const lead = focus || ranked[0];\n  if (!lead) return '';\n  return [lead + ' Day'].concat(ranked.filter((muscle) => muscle !== lead)).join(' + ');\n};\n\nconst text = (content) => ({ type: 'text', text: { content: String(content) } });\nconst tableRow = (cells) => ({ object: 'block', type: 'table_row', table_row: { cells: cells.map((cell) => [text(cell)]) } });\nconst exerciseBlock = (name, sets) => ({\n  object: 'block',\n  type: 'heading_3',\n  heading_3: {\n    rich_text: [text(name + ' · ' + setCount(sets.length))],\n    is_toggleable: true,\n    children: [{\n      object: 'block',\n      type: 'table',\n      table: {\n        table_width: 3,\n        has_column_header: true,\n        has_row_header: false,\n        children: [tableRow(['Set', 'Reps', 'Weight'])].concat(sets.map((set, index) => tableRow([index + 1, set.reps, formatWeight(set)]))),\n      },\n    }],\n  },\n});\nconst emptyDayBlock = { object: 'block', type: 'paragraph', paragraph: { rich_text: [text('No sets logged.')] } };\n\nconst renderDay = (sets, focus) => {\n  const exercises = unique(sets.map((set) => set.exercise));\n  const label = dayLabel(sets, focus);\n  return {\n    pageId: PAGE_ID,\n    dayPrefix,\n    dayTitle: label ? dayPrefix + ' · ' + label : dayPrefix,\n    dayChildren: exercises.length ? exercises.map((name) => exerciseBlock(name, sets.filter((set) => set.exercise === name))) : [emptyDayBlock],\n  };\n};\n\nconst output = (route, reply, extra) => [{ json: Object.assign({ route, reply: escapeHtml(reply) }, extra || {}) }];\nconst replyOnly = (reply) => output('reply', reply);\n\nconst exerciseFor = (set) => {\n  const known = ctx.exercises.find((exercise) => matchesName(exercise, set.exercise));\n  if (known) return known;\n  return { name: String(set.exercise).trim(), muscleGroup: validMuscle(set.muscle_group) || 'Full Body' };\n};\n\nconst noteSoFar = ctx.pendingNote ? ctx.pendingNote + ' / then: ' + transcript : transcript;\nconst planUnclear = (parsed) => output('reply', (parsed && parsed.question) || DEFAULT_HELP, { awaitingAnswer: true, noteSoFar });\n\nconst planLogSets = (parsed) => {\n  const spoken = validMuscle(parsed.day_focus);\n  const focus = spoken || ctx.spokenFocus;\n  const valid = (parsed.sets || []).filter(isValidSet);\n  if (!valid.length) return spoken ? replyOnly('Noted: ' + spoken + ' Day. Send your first set.') : planUnclear(parsed);\n  const allSets = ctx.sets.slice();\n  const newRows = valid.map((set) => {\n    const exercise = exerciseFor(set);\n    const row = {\n      sessionDate,\n      exercise: exercise.name,\n      muscleGroup: exercise.muscleGroup,\n      setNo: allSets.filter((existing) => existing.exercise === exercise.name).length + 1,\n      reps: Number(set.reps),\n      weight: Number(set.weight),\n      unit: set.unit === 'lb' ? 'lb' : 'kg',\n      dayFocus: spoken || '',\n      transcript,\n      telegramMessageId: message.message_id,\n    };\n    allSets.push(row);\n    return row;\n  });\n  const day = renderDay(allSets, focus);\n  const reply = newRows.map((row) => '✅ ' + row.exercise + ' · Set ' + row.setNo + ': ' + formatSet(row)).join('\\n');\n  return newRows.map((row) => ({ json: Object.assign({ route: 'log', reply: escapeHtml(reply), row }, day) }));\n};\n\nconst planUndo = () => {\n  const last = ctx.lastSet;\n  if (!last) return replyOnly('Nothing logged today to undo.');\n  const remaining = ctx.sets.filter((set) => set.id !== last.id);\n  return output('undo', '↩️ Removed ' + last.exercise + ' · Set ' + last.setNo + ' (' + formatSet(last) + ')', Object.assign({ undoId: last.id }, renderDay(remaining, ctx.spokenFocus)));\n};\n\nconst planCorrect = (parsed) => {\n  const last = ctx.lastSet;\n  if (!last) return replyOnly('Nothing logged today to correct.');\n  const correction = parsed.correction || {};\n  const fixed = Object.assign({}, last, {\n    reps: hasNumber(correction.reps) && Number(correction.reps) > 0 ? Number(correction.reps) : last.reps,\n    weight: hasNumber(correction.weight) ? Number(correction.weight) : last.weight,\n    unit: correction.unit === 'kg' || correction.unit === 'lb' ? correction.unit : last.unit,\n  });\n  const sets = ctx.sets.map((set) => (set.id === fixed.id ? fixed : set));\n  return output('correct', '✏️ ' + fixed.exercise + ' · Set ' + fixed.setNo + ' is now ' + formatSet(fixed), Object.assign({ correction: { id: fixed.id, reps: fixed.reps, weight: fixed.weight, unit: fixed.unit } }, renderDay(sets, ctx.spokenFocus)));\n};\n\nconst planSummary = () => {\n  if (!ctx.sets.length) return replyOnly('Nothing logged today yet.');\n  const exercises = unique(ctx.sets.map((set) => set.exercise));\n  const line = (name) => {\n    const sets = ctx.sets.filter((set) => set.exercise === name);\n    return name + ' (' + setCount(sets.length) + '): ' + sets.map(formatSet).join(', ');\n  };\n  const label = dayLabel(ctx.sets, ctx.spokenFocus);\n  return replyOnly(['📋 ' + (label || 'Today')].concat(exercises.map(line)).join('\\n'));\n};\n\nconst handlers = {\n  log_sets: planLogSets,\n  undo_last: planUndo,\n  correct_last: planCorrect,\n  summary: planSummary,\n  unclear: planUnclear,\n};\nconst parsed = parseModelOutput($input.first().json);\nreturn (handlers[parsed.intent] || planUnclear)(parsed);"
+      },
+      "id": "ed936f4d-0a55-4056-aaff-4065138a9e73",
+      "name": "Plan changes",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        32
+      ],
+      "notes": "Decides what to store (new sets, undo or correction), numbers the sets, and builds today's date toggle for Notion from the final list of sets: one toggle per exercise holding a Set / Reps / Weight table. Also builds the Telegram reply."
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.route }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "rightValue": "log"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.route }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "rightValue": "undo"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.route }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "rightValue": "correct"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.route }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "rightValue": "reply"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e1d62461-7004-40a0-88cb-ecb797f6c056",
+      "name": "Route by action",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1824,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "SELECT_gym_sets_TABLE",
+          "cachedResultName": "gym_sets"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "sessionDate": "={{ $json.row.sessionDate }}",
+            "exercise": "={{ $json.row.exercise }}",
+            "muscleGroup": "={{ $json.row.muscleGroup }}",
+            "setNo": "={{ $json.row.setNo }}",
+            "reps": "={{ $json.row.reps }}",
+            "weight": "={{ $json.row.weight }}",
+            "unit": "={{ $json.row.unit }}",
+            "dayFocus": "={{ $json.row.dayFocus }}",
+            "transcript": "={{ $json.row.transcript }}",
+            "telegramMessageId": "={{ $json.row.telegramMessageId }}"
+          },
+          "schema": [
+            {
+              "id": "sessionDate",
+              "displayName": "sessionDate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "exercise",
+              "displayName": "exercise",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "muscleGroup",
+              "displayName": "muscleGroup",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "setNo",
+              "displayName": "setNo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "reps",
+              "displayName": "reps",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "weight",
+              "displayName": "weight",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "unit",
+              "displayName": "unit",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "dayFocus",
+              "displayName": "dayFocus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "transcript",
+              "displayName": "transcript",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "telegramMessageId",
+              "displayName": "telegramMessageId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "28a2d58d-056b-49be-b002-8a9827c2e45c",
+      "name": "Save new sets",
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        2048,
+        -240
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.notion.com/v1/blocks/{{ $('Plan changes').first().json.pageId }}/children?page_size=100",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2026-03-11"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7d26a3ca-5326-4979-8e35-87dc4e5a2d5f",
+      "name": "Find day block",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        2272,
+        -48
+      ],
+      "executeOnce": true,
+      "notes": "Reads the top of the Workout Log page to find the callout and, if it exists, the toggle for today.",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "deleteRows",
+        "dataTableId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "SELECT_gym_sets_TABLE",
+          "cachedResultName": "gym_sets"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyValue": "={{ $json.undoId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6e5d6af0-a197-47e8-91d4-9220318e7c12",
+      "name": "Delete last set",
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        2048,
+        -48
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "dataTableId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "SELECT_gym_sets_TABLE",
+          "cachedResultName": "gym_sets"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyValue": "={{ $json.correction.id }}"
+            }
+          ]
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "reps": "={{ $json.correction.reps }}",
+            "weight": "={{ $json.correction.weight }}",
+            "unit": "={{ $json.correction.unit }}"
+          },
+          "schema": [
+            {
+              "id": "sessionDate",
+              "displayName": "sessionDate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "exercise",
+              "displayName": "exercise",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "muscleGroup",
+              "displayName": "muscleGroup",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "setNo",
+              "displayName": "setNo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "reps",
+              "displayName": "reps",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "weight",
+              "displayName": "weight",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "unit",
+              "displayName": "unit",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "dayFocus",
+              "displayName": "dayFocus",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "transcript",
+              "displayName": "transcript",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "telegramMessageId",
+              "displayName": "telegramMessageId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ba472f82-a074-4cc1-a448-6a54be5aadd3",
+      "name": "Update last set",
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        2048,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('On Telegram message').first().json.message.chat.id }}",
+        "text": "={{ $('Plan changes').first().json.reply }}",
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "HTML",
+          "reply_to_message_id": "={{ $('On Telegram message').first().json.message.message_id }}"
+        }
+      },
+      "id": "c03d716f-7e82-4053-9831-906a7d2ee70e",
+      "name": "Send reply",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        3392,
+        32
+      ],
+      "executeOnce": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.results.some(block => block.type === 'heading_2' && (block.heading_2.rich_text ?? []).map(part => part.plain_text).join('').startsWith($('Plan changes').first().json.dayPrefix)) }}",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "d8d21912-17a4-4629-8702-3be5bcc81db3",
+      "name": "Day block exists?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2496,
+        -48
+      ]
+    },
+    {
+      "parameters": {
+        "method": "DELETE",
+        "url": "=https://api.notion.com/v1/blocks/{{ $('Find day block').first().json.results.find(block => block.type === 'heading_2' && (block.heading_2.rich_text ?? []).map(part => part.plain_text).join('').startsWith($('Plan changes').first().json.dayPrefix)).id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2026-03-11"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b2849b27-ce84-4493-9baf-a4b91c98b5ed",
+      "name": "Delete old day block",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        2720,
+        -192
+      ],
+      "notes": "Today's toggle is rebuilt from scratch on every message, so it always matches the stored sets.",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/blocks/{{ $('Plan changes').first().json.pageId }}/children",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2026-03-11"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ children: [{ object: 'block', type: 'heading_2', heading_2: { rich_text: [{ type: 'text', text: { content: $('Plan changes').first().json.dayTitle } }], is_toggleable: true } }], position: $('Find day block').first().json.results.some(block => block.type === 'callout') ? { type: 'after_block', after_block: { id: $('Find day block').first().json.results.find(block => block.type === 'callout').id } } : { type: 'start' } }) }}",
+        "options": {}
+      },
+      "id": "f91a8d3b-d34e-48b3-9476-5106a7ebb49d",
+      "name": "Create day block",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        2944,
+        -48
+      ],
+      "notes": "Adds the date toggle right under the callout so the newest day is on top. Its content is added by the next node because Notion allows only two levels of nesting per request.",
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.notion.com/v1/blocks/{{ $json.results[0].id }}/children",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "notionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Notion-Version",
+              "value": "2026-03-11"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ children: $('Plan changes').first().json.dayChildren }) }}",
+        "options": {}
+      },
+      "id": "8e89e75d-c59c-4ca5-a4ac-d42b772edee0",
+      "name": "Fill day block",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        3168,
+        -48
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Known exercises (name [muscle group] aka aliases):\n{{ $('Build context').first().json.catalogForPrompt }}\n\nLogged so far today:\n{{ $('Build context').first().json.sessionSummary }}\nLast exercise logged: {{ $('Build context').first().json.lastExercise }}\n\n{{ $('Build context').first().json.pendingForPrompt }}\n\nWhat the user said now:\n\"\"\"{{ $json.text }}\"\"\"",
+        "options": {
+          "systemMessage": "You read a short note a gym-goer sent between sets (usually a transcribed voice note, spoken casually with no fixed format) and return ONLY a JSON object, no prose.\n\nSchema:\n{\n  \"intent\": \"log_sets\" | \"undo_last\" | \"correct_last\" | \"summary\" | \"unclear\",\n  \"day_focus\": \"Chest\" | \"Back\" | \"Shoulders\" | \"Biceps\" | \"Triceps\" | \"Legs\" | \"Core\" | \"Cardio\" | \"Full Body\" | null,\n  \"sets\": [ { \"exercise\": string, \"muscle_group\": string, \"reps\": number, \"weight\": number, \"unit\": \"kg\" | \"lb\" } ],\n  \"correction\": { \"reps\": number | null, \"weight\": number | null, \"unit\": \"kg\" | \"lb\" | null } | null,\n  \"question\": string | null\n}\n\nRules:\n- Answering your question: when an earlier note is waiting for an answer and the new message answers your question (for example it only gives the missing reps or weights), combine the earlier note and the new message into one complete answer. Earlier \"leg press four sets of 10 kg 12 kg 15 kg 13 kg\" plus now \"eleven, twelve, eleven, twelve\" means four Leg Press sets: 11x10, 12x12, 11x15, 12x13. Pair the values in the order they were said. If the new message is a new, complete note instead, ignore the earlier one.\n- log_sets: the note reports one or more sets. Add one entry to \"sets\" per set performed. \"3 sets of 10 at 20\" is three identical entries. \"12 at 20, then 10 at 22\" is two entries.\n- Every set needs a rep count and a weight that the user actually said (or clearly implied with \"same\" or \"3 sets of 10 at 20\"). Numbers like \"first\", \"second\", \"set 1\", \"1\", \"2\" placed before a value are usually set numbers, not reps. If you cannot tell which number is the reps and which is the weight for any set, do NOT guess: return intent \"unclear\" and ask one short question, for example \"How many reps did you do in each set?\".\n- exercise: use the exact name from Known exercises whenever it matches, including aliases and speech-to-text mistakes (for example \"jumble row\" is Dumbbell Row). Only use a new name (Title Case, standard gym name) when nothing matches, and then set muscle_group from the allowed day_focus values.\n- If the note names no exercise (\"next set\", \"same again\", \"10 at 50\"), use the Last exercise logged.\n- Ignore spoken set numbers such as \"second set\"; the system numbers sets itself.\n- unit is kg unless the user says pounds or lbs. Bodyweight moves with no weight use 0.\n- day_focus: set it only when the user names the day (\"today is chest day\", \"leg day\"). \"Chess day\" means Chest.\n- undo_last: \"undo\", \"delete that\", \"remove the last set\".\n- correct_last: the user fixes the previous set (\"that was 25 not 22.5\", \"actually 8 reps\"). Fill only the changed fields in correction.\n- summary: \"summary\", \"what did I do today\", \"how many sets\".\n- unclear: anything else, or numbers you cannot tie to an exercise. Put a short question for the user in \"question\".",
+          "maxIterations": 1,
+          "enableStreaming": false
+        }
+      },
+      "id": "6e895552-649f-4c5c-9ce6-f2c258490b73",
+      "name": "Extract workout data",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1264,
+        48
+      ],
+      "notes": "The LLM (Groq) reads the note and returns JSON (intent, sets, correction). Plan changes parses it and falls back to a help reply if it is not valid."
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "openai/gpt-oss-20b",
+          "mode": "list",
+          "cachedResultName": "openai/gpt-oss-20b"
+        },
+        "responsesApiEnabled": false,
+        "options": {
+          "temperature": 0.1,
+          "maxRetries": 2
+        }
+      },
+      "id": "c95e853b-63cb-4693-8cf6-f089738ac612",
+      "name": "Chat model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        1200,
+        240
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": "groq"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "SELECT_gym_pending_question_TABLE",
+          "cachedResultName": "gym_pending_question"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "chatId",
+              "keyValue": "={{ String($json.message.chat.id) }}"
+            }
+          ]
+        },
+        "limit": 1
+      },
+      "id": "b6d0ae07-415a-43c2-867c-4f1f72dded6a",
+      "name": "Load pending question",
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -320,
+        32
+      ],
+      "alwaysOutputData": true,
+      "notes": "The question the bot asked in its last reply, if it is still waiting for an answer. Empty when nothing is pending."
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "dataTableId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "SELECT_gym_pending_question_TABLE",
+          "cachedResultName": "gym_pending_question"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "chatId",
+              "keyValue": "={{ String($('On Telegram message').first().json.message.chat.id) }}"
+            }
+          ]
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "chatId": "={{ String($('On Telegram message').first().json.message.chat.id) }}",
+            "note": "={{ $('Plan changes').first().json.awaitingAnswer ? $('Plan changes').first().json.noteSoFar : '' }}",
+            "question": "={{ $('Plan changes').first().json.awaitingAnswer ? $('Plan changes').first().json.reply : '' }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "chatId",
+              "displayName": "chatId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "note",
+              "displayName": "note",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "question",
+              "displayName": "question",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "b5462e52-b207-449f-9f27-853e8b7848a2",
+      "name": "Remember open question",
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        3616,
+        32
+      ],
+      "notes": "Saves the note and question when the bot had to ask something, so the next reply can complete it. Clears it after any other reply."
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "includeTimestamps": false,
+        "options": {}
+      },
+      "type": "n8n-nodes-deapi.deapi",
+      "typeVersion": 1,
+      "position": [
+        848,
+        -112
+      ],
+      "id": "fae6f66b-cb7a-4556-be29-4c048fea8fc6",
+      "name": "Transcribe an audio",
+      "credentials": {
+        "deApi": {
+          "id": "",
+          "name": "deAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "destinationKey": "transcriptFile",
+        "options": {}
+      },
+      "id": "36d6abe2-32d4-4943-97c8-4de7e5b2966e",
+      "name": "Read transcript file",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.2,
+      "position": [
+        1040,
+        -112
+      ],
+      "onError": "continueRegularOutput",
+      "notes": "deAPI hands back the transcript as a file in binary 'data'. This turns it into text. If deAPI ever returns the text inline instead, this step errors softly and Use voice transcript falls back to the JSON fields."
+    }
+  ],
+  "pinData": {}
+}
