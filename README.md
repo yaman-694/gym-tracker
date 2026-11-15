@@ -19,6 +19,17 @@ Built for the Build with AI talk at GDG Gwalior.
 | `data-tables/gym_sets.csv` | Schema plus sample rows for the `gym_sets` table |
 | `data-tables/gym_pending_question.csv` | Schema only (empty) for the `gym_pending_question` table |
 
+## Accounts and links you need
+
+| Service | Link | What to do there |
+| --- | --- | --- |
+| PikaPods | [pikapods.com](https://www.pikapods.com/) | Host your own n8n instance (pick the n8n app) |
+| Telegram | [@BotFather](https://t.me/BotFather) | Create a bot and copy its token |
+| deAPI | [Dashboard](https://app.deapi.ai/dashboard) | Create an API key for speech to text |
+| deAPI | [Webhook settings](https://app.deapi.ai/settings/webhooks) | Webhook settings, used when deAPI sends the finished transcript back to n8n |
+| Groq | [API keys](https://console.groq.com/keys) | Create a free API key for the LLM |
+| Notion | [Integration tokens](https://app.notion.com/developers/tokens) | Create an integration token, then share your Workout Log page with that integration |
+
 ## Setup
 
 ### 1. Create the data tables
