@@ -57,6 +57,8 @@ Create a new workflow, open the **...** menu, choose **Import from File**, and p
 ### 4. Replace the placeholders
 
 - **On Telegram message**: set the chat ID filter to your own Telegram chat ID (replace `YOUR_TELEGRAM_CHAT_ID`).
+  To find it, clear the **Restrict to Chat IDs** field, click **Execute step**, and send your bot any message.
+  The output shows it at `message.chat.id`; paste that number back into the field so only you can use the bot.
 - **Plan changes** (Code node): set `PAGE_ID` to the ID of your Notion page (replace `YOUR_NOTION_PAGE_ID`).
 - **Every Data table node**: pick `gym_sets` or `gym_pending_question` from the list (the values `SELECT_..._TABLE` are placeholders).
 
